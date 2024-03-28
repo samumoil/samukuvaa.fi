@@ -1,0 +1,22 @@
+version: "3"
+
+#jekyll: ipv4_address: 192.168.1.118
+
+networks:
+  common:
+    external: true
+  macvlan:
+    external: true
+
+services:
+  jekyll:
+    build: ./
+    container_name: jekyll
+    volumes:
+     - /samu/docker/jekyll/samukuvaa:/srv/jekyll
+    ports:
+      - "4000:4000"
+    networks:
+      common:
+      macvlan:
+        ipv4_address: 192.168.1.118
